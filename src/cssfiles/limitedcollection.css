@@ -1,0 +1,17 @@
+
+.limitedcollection-heading{
+    /* border: 1px solid black; */
+    color: #23262B;
+    font-size: 4rem;
+    margin: 3rem 0 0 0;
+    padding-left: 2.5rem;
+}
+
+
+.limitedcollection-products{
+    /* border: 2px solid purple; */
+    padding-bottom: 3rem;
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+}

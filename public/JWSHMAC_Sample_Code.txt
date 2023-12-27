@@ -1,0 +1,38 @@
+private static String encryptAndSignJWSWithHMAC(String reqStr, String secretKey, String clientid)
+    throws JOSEException {
+
+    JWSSigner signer = new MACSigner(secretKey);
+    HashMap<String, Object> customParams = new HashMap<String, Object>();
+    customParams.put("clientid", clientid);
+    JWSHeader jwsHeader = new JWSHeader(JWSAlgorithm.HS256,
+                                        null,
+                                        null,
+                                        null,
+                                        null,
+                                        null,
+                                        null,
+                                        null,
+                                        null,
+                                        null,
+                                        null,
+                                        customParams,
+                                        null);
+    JWSObject jwsObject = new JWSObject(jwsHeader, new Payload(reqStr)); // Apply the HMAC
+    jwsObject.sign(signer);
+    return jwsObject.serialize();
+  }
+
+  public static String verifyAndDecryptJWSWithHMAC(String encryptedSignedMessage,
+                                                   String verificationKey)
+    throws Exception {
+
+    JWSObject jwsObject = JWSObject.parse(encryptedSignedMessage);
+    
+    String clientId = jwsObject.getHeader().getCustomParam("clientid").toString();
+    System.out.println("clientId = " + clientId);
+    JWSVerifier verifier = new MACVerifier(verificationKey);
+    boolean isVerified = jwsObject.verify(verifier);
+    System.out.println("is valid " + isVerified);
+    String message = jwsObject.getPayload().toString();
+    return message;
+  }

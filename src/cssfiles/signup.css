@@ -1,0 +1,221 @@
+.main-contact-fluid {
+  background: #eee;
+}
+.main-contact {
+  /* border: 1px solid black; */
+  height: 88vh;
+  display: flex;
+}
+.main-contact-content {
+  /* border: 1px solid yellow; */
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.main-contact-content h1 {
+  color: #393e46;
+  font-size: 3.5rem;
+}
+.main-contact-content p {
+  color: black;
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.main-contact-form {
+  /* border: 1px solid yellow; */
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-div {
+  /* border: 1px solid cyan; */
+  width: 80%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.form-group {
+  display: flex;
+  margin-top: 0.8rem;
+  padding: 1rem;
+}
+label {
+  color: black;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 1rem;
+}
+.form-group1 {
+  /* border: 1px solid yellow; */
+  width: 50%;
+  color: black;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.form-group2 {
+  /* border: 1px solid yellow; */
+  width: 50%;
+  color: black;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.form-group1 input,
+.form-group2 input {
+  border: none;
+  outline: none;
+  margin-top: 0.5rem;
+  width: 90%;
+  height: 5vh;
+  padding: 1rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  border-radius: 5px;
+}
+.form-input {
+  outline: none;
+  border: none;
+  width: 91%;
+  height: 5vh;
+  border-radius: 5px;
+  margin-left: 1rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  padding: 0.8rem;
+}
+.form-div textarea {
+  outline: none;
+  border: none;
+  width: 91%;
+  height: 10vh;
+  border-radius: 5px;
+  margin-left: 1rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+  padding: 0.2rem 0 0 0.8rem;
+  resize: none;
+}
+.form-div input[type="submit"] {
+  margin: 0.6rem 0 1.5rem 1rem;
+  text-transform: uppercase;
+}
+.submit-form {
+  border: 1px solid grey;
+  border-radius: 10px;
+  width: 94%;
+  height: 3.5rem;
+  color: #eee;
+  background: #393e46;
+  font-size: 1.5rem;
+  font-weight: 500;
+  transition: 0.3s;
+}
+.submit-form:hover {
+  color: #393e46;
+  background-color: #eee;
+}
+.form-error {
+  color: black;
+}
+.registered {
+  margin: 0.5rem 0 0 1rem;
+}
+.signin-button {
+  margin: 0 0 1rem 1rem;
+}
+.signin-button button {
+  border: none;
+  color: blue;
+  font-weight: 500;
+}
+.signin-button button:active {
+  color: black;
+}
+
+/* ---------------media queries---------------------- */
+@media screen and (max-width: 500px) {
+  .main-contact {
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 95vh;
+  }
+  .main-contact-content {
+    display: none;
+    width: 100%;
+    min-height: 30%;
+  }
+  .main-contact-content h1 {
+    font-size: 2.5rem;
+  }
+  .main-contact-content p {
+    color: black;
+    font-size: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .main-contact-form {
+    width: 100%;
+    max-height: 60%;
+  }
+  .form-div {
+    /* border: 1px solid cyan; */
+    min-width: 90%;
+  }
+}
+@media (min-width: 501px) and (max-width: 992px) {
+  .main-contact {
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 88vh;
+  }
+  .main-contact-content {
+    width: 100%;
+    min-height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .main-contact .main-contact-content p {
+    color: black;
+    font-size: 2rem;
+    text-align: center;
+  }
+  .main-contact-content h1 {
+    font-size: 3.5rem;
+  }
+  .main-contact-content p {
+    color: black;
+    font-size: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .main-contact-form {
+    width: 100%;
+    min-height: 60%;
+  }
+  .form-div {
+    /* border: 1px solid cyan; */
+    max-width: 80%;
+    height: 90%;
+  }
+  label {
+    font-size: 1.7rem;
+  }
+  .form-group1 {
+    font-size: 1.7rem;
+  }
+  .form-group2 {
+    font-size: 1.7rem;
+  }
+  .form-div input[type="submit"] {
+    margin: 0.6rem 0 2rem 1rem;
+    text-transform: uppercase;
+  }
+  .submit-form {
+    height: 4.5rem;
+    font-size: 2rem;
+  }
+}

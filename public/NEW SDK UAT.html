@@ -1,0 +1,63 @@
+<html dir="ltr" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+<script type="module" src="https://uat1.billdesk.com/merchant-uat/sdk/dist/billdesksdk/billdesksdk.esm.js"></script>
+<script nomodule="" src="https://uat1.billdesk.com/merchant-uat/sdk/dist/billdesksdk.js"></script>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<link href="https://uat1.billdesk.com/merchant-uat/sdk/dist/billdesksdk/billdesksdk.css"rel="stylesheet">
+</head>
+<body>
+<script type="text/javascript">
+         debugger;
+
+         var flow_config ={
+                merchantId:"BDMONITOR",
+                bdOrderId: "OASB19XTPTUSML",
+                authToken:"OToken ecc3702b83a030a3dd406ae583919ab9a37be7ffe94aebe7467f85096a61f7942eb903ac40620002a82e7a95817c1266d2eef10778757b7653173526b1401edc644af4e652b654ae9770daa3a39191a04797f2a5760c066ea60c125071913a88de0d50197382d3d5017a472815a5881f74490256225069a58cebe668e25dec9fe509cd724df7ed6c8de2e182a5fbe3b6119ea8036d7050ed61f41d76.4145535f55415431",
+childWindow: false,
+returnUrl: "https://pguatweb.billdesk.io/pgtxnsimulator/v1_2/pageclose", 
+} 
+
+
+
+var responseHandler = function (response) {
+
+                            console.log("responseHandler callback received")
+
+
+                            console.log(response)
+
+                            if (response.txnResponse) {
+                                var encodedres = btoa(JSON.stringify(response))
+                                $("#encodedres").val(encodedres);
+                                $("#pgresponse").attr("action", "https://pguatweb.billdesk.io/pgtxnsimulator/v1_2/pageclose");
+                                document.pgresponse.submit()
+                            }
+                            if (response.status == 111) {
+                                showErrorPanel("Modal Closed By User");
+                            }
+
+                        };
+
+
+
+         var config = {
+
+             responseHandler: responseHandler,
+
+             flowConfig: flow_config,
+
+             flowType: "payments"
+
+         }
+
+         $(document).ready(function () {
+
+             window.loadBillDeskSdk(config);
+
+         });
+
+</script>
+</body>
+</html>
