@@ -11,6 +11,7 @@ const Basics = () => {
       try {
         const response = await axios.get("http://localhost:8400/basic-list");
         setData(response.data.cloth);
+        // console.log(response)
       } catch (error) {
         console.log(error);
       }
