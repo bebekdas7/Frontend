@@ -33,10 +33,13 @@ const Signin = () => {
       // setData(values);
       // console.log(values);
       try {
-        const res = await axios.post("http://localhost:8400/login", {
-          email: values.email,
-          password: values.password,
-        });
+        const res = await axios.post(
+          "http://ec2-16-171-249-244.eu-north-1.compute.amazonaws.com:8400/login",
+          {
+            email: values.email,
+            password: values.password,
+          }
+        );
         // console.log(res);
         console.log("signed In");
         const userid = res.data.userId;

@@ -37,12 +37,15 @@ const Signup = () => {
 
   const handleSubmitButton = async () => {
     try {
-      const response = await axios.post("http://localhost:8400/register", {
-        firstname: data.firstname,
-        lastname: data.lastname,
-        email: data.email,
-        password: data.password,
-      });
+      const response = await axios.post(
+        "http://ec2-16-171-249-244.eu-north-1.compute.amazonaws.com:8400/register",
+        {
+          firstname: data.firstname,
+          lastname: data.lastname,
+          email: data.email,
+          password: data.password,
+        }
+      );
       setRes(response.data);
       console.log(response);
     } catch (error) {

@@ -60,12 +60,15 @@ const Pay = () => {
         const { address, city, name, pincode, state, tel } = values;
         const refId = localStorage.getItem("userId");
 
-        const result = await axios.post("http://localhost:8400/place-order", {
-          name,
-          orderId,
-          price,
-          cloth_id,
-        });
+        const result = await axios.post(
+          "http://ec2-16-171-249-244.eu-north-1.compute.amazonaws.com:8400/place-order",
+          {
+            name,
+            orderId,
+            price,
+            cloth_id,
+          }
+        );
         console.log(result);
       },
     });

@@ -10,7 +10,7 @@ const Floral = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8400/florat-list"
+          "http://ec2-16-171-249-244.eu-north-1.compute.amazonaws.com:8400/florat-list"
         );
         console.log(response);
         setData(response.data.cloth);
@@ -33,9 +33,18 @@ const Floral = () => {
             <Products
               key={i}
               cloth_id={item._id}
-              src={"http://localhost:8400/image/" + item.images[0].id}
-              hover={"http://localhost:8400/image/" + item.images[1].id}
-              hover2={"http://localhost:8400/image/" + item.images[2].id}
+              src={
+                "http://ec2-16-171-249-244.eu-north-1.compute.amazonaws.com:8400/image/" +
+                item.images[0].id
+              }
+              hover={
+                "http://ec2-16-171-249-244.eu-north-1.compute.amazonaws.com:8400/image/" +
+                item.images[1].id
+              }
+              hover2={
+                "http://ec2-16-171-249-244.eu-north-1.compute.amazonaws.com:8400/image/" +
+                item.images[2].id
+              }
               title={item.cloth_name}
               price={item.discounted_price}
               oldprice={item.original_price}
